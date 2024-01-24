@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### New Feature
+
+-   Adds Posts per page control. ([#58207](https://github.com/WordPress/gutenberg/pull/58207))
+
 ## 8.26.0 (2024-01-10)
 
 ## 8.25.0 (2023-12-13)
@@ -17,7 +21,6 @@
 ### Bug Fix
 
 -   Fix Image block lightbox missing alt attribute and improve accessibility. ([#54608](https://github.com/WordPress/gutenberg/pull/55010))
-
 
 ## 8.20.0 (2023-10-05)
 
