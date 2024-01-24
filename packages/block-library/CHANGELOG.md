@@ -4,7 +4,7 @@
 
 ### New Feature
 
--   Query Loop Block: Adds Posts per page control to Inspector Controls. ([#58207](https://github.com/WordPress/gutenberg/pull/58207))
+-   Query Loop Block: Moves per page, offset, and pages controls into Inspector Controls. ([#58207](https://github.com/WordPress/gutenberg/pull/58207))
 
 ## 8.26.0 (2024-01-10)
 
