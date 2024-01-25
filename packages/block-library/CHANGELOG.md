@@ -6,6 +6,8 @@
 
 -   Query Loop Block: Moves per page, offset, and pages controls into Inspector Controls. ([#58207](https://github.com/WordPress/gutenberg/pull/58207))
 
+## 8.27.0 (2024-01-24)
+
 ## 8.26.0 (2024-01-10)
 
 ## 8.25.0 (2023-12-13)
