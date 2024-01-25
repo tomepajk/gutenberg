@@ -22,6 +22,7 @@ import { checkAllowListRecursive, getAllPatternsDependants } from './utils';
 import { INSERTER_PATTERN_TYPES } from '../components/inserter/block-patterns-tab/utils';
 import { STORE_NAME } from './constants';
 import { unlock } from '../lock-unlock';
+import { reusableBlocksSelectKey } from './private-keys';
 
 export { getBlockSettings } from './get-block-settings';
 
@@ -294,11 +295,11 @@ export const getAllPatterns = createRegistrySelector( ( select ) =>
 			__experimentalBlockPatterns = [],
 			__experimentalUserPatternCategories = [],
 			__experimentalReusableBlocks = [],
-			__experimentalReusableBlocksSelect,
 		} = state.settings;
+		const reusableBlocksSelect = state.settings[ reusableBlocksSelectKey ];
 		const userPatterns = (
-			__experimentalReusableBlocksSelect
-				? __experimentalReusableBlocksSelect( select )
+			reusableBlocksSelect
+				? reusableBlocksSelect( select )
 				: __experimentalReusableBlocks ?? []
 		).map( ( userPattern ) => {
 			return {
