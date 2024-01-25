@@ -161,7 +161,7 @@
 
 ## 3.1.0 (2019-03-06)
 
-### Enhancement
+### Enhancements
 
 -   Added format boundaries.
 -   Removed parameters from `create` to filter out content.
