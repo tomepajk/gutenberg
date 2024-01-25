@@ -16,7 +16,7 @@
 
 ## 8.21.0 (2023-10-18)
 
-### Bug Fix
+### Bug Fixes
 
 -   Fix Image block lightbox missing alt attribute and improve accessibility. ([#54608](https://github.com/WordPress/gutenberg/pull/55010))
 
@@ -85,7 +85,7 @@
 
 ## 7.13.0 (2022-08-24)
 
-### Bug Fix
+### Bug Fixes
 
 -   Ensure all dependencies allow version ranges ([#43355](https://github.com/WordPress/gutenberg/pull/43355)).
 
@@ -115,7 +115,7 @@
 
 ## 7.2.0 (2022-03-23)
 
-### Bug Fix
+### Bug Fixes
 
 -   Table block: Fix deprecation eligibility to prevent loss of named (color palette) background color ([#39445](https://github.com/WordPress/gutenberg/pull/39445)).
 
@@ -131,7 +131,7 @@
 
 -   The `GUTENBERG_PHASE` environment variable has been renamed to `IS_GUTENBERG_PLUGIN` and is now a boolean ([#38202](https://github.com/WordPress/gutenberg/pull/38202)).
 
-### Bug Fix
+### Bug Fixes
 
 -   Gallery block: disable edit as html support ([#39318](https://github.com/WordPress/gutenberg/pull/39318)).
 -   Removed unused `@wordpress/escape-html` and `@wordpress/is-shallow-equal` dependencies ([#38388](https://github.com/WordPress/gutenberg/pull/38388)).

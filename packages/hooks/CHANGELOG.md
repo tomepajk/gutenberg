@@ -121,7 +121,7 @@
 
 -   Include TypeScript type declarations ([#26430](https://github.com/WordPress/gutenberg/pull/26430))
 
-### Bug Fix
+### Bug Fixes
 
 -   Fix: Use own instance's `doAction` method for built-in `hookAdded` and `hookRemoved` hooks ([#26498](https://github.com/WordPress/gutenberg/pull/26498))
 
@@ -163,6 +163,6 @@
 
 ## 1.1.6 (2018-03-21)
 
-### Bug Fix
+### Bug Fixes
 
 -   Fix: Resolves issue where action argument would be undefined on all but the first action callback.

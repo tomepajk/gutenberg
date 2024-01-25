@@ -81,7 +81,7 @@
 
 ## 11.15.0 (2022-08-24)
 
-### Bug Fix
+### Bug Fixes
 
 -   Packages: Replace `is-plain-obj` with `is-plain-object` ([#43511](https://github.com/WordPress/gutenberg/pull/43511)).
 
@@ -229,7 +229,7 @@
 
 -   `isValidBlock` has been removed. Please use `isValidBlockContent` instead but keep in mind that the order of params has changed.
 
-### Bug Fix
+### Bug Fixes
 
 -   The block validator is more lenient toward equivalent encoding forms.
 

@@ -106,7 +106,7 @@
 
 ## 3.2.3 (2021-10-12)
 
-### Bug Fix
+### Bug Fixes
 
 -   Removed unused `react-native-url-polyfill` dependency ([#34687](https://github.com/WordPress/gutenberg/pull/34687)).
 
@@ -137,7 +137,7 @@
 
 ## 2.14.0 (2020-04-30)
 
-### Bug fix
+### Bug Fixes
 
 -   `addQueryArgs` arguments are optional ([#21926](https://github.com/WordPress/gutenberg/pull/21926))
 
@@ -170,7 +170,7 @@
 
 ## 2.3.1 (2018-11-20)
 
-### Bug fixes
+### Bug Fixes
 
 -   The `isValidProtocol` function now correctly considers the protocol of the URL as only incoporating characters up to and including the colon (':').
 -   `getFragment` is now greedier and matches fragments from the first occurrence of the '#' symbol instead of the last.
@@ -206,7 +206,7 @@
 
 ## 2.0.1 (2018-09-30)
 
-### Bug Fix
+### Bug Fixes
 
 -   Fix typo in the `qs` dependency definition in the `package.json`
 
