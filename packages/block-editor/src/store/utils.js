@@ -1,3 +1,9 @@
+/**
+ * Internal dependencies
+ */
+import { unlock } from '../lock-unlock';
+import { STORE_NAME } from './constants';
+
 export const checkAllowList = ( list, item, defaultResult = null ) => {
 	if ( typeof list === 'boolean' ) {
 		return list;
@@ -40,12 +46,13 @@ export const checkAllowListRecursive = ( blocks, allowedBlockTypes ) => {
 	return true;
 };
 
-export const getAllPatternsDependants = ( state ) => {
+export const getAllPatternsDependants = ( select ) => ( state ) => {
 	return [
 		state.settings.__experimentalBlockPatterns,
 		state.settings.__experimentalUserPatternCategories,
 		state.settings.__experimentalReusableBlocks,
 		state.settings.__experimentalFetchBlockPatterns,
 		state.blockPatterns,
+		unlock( select( STORE_NAME ) ).getReusableBlocks(),
 	];
 };

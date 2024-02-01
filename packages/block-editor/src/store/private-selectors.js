@@ -279,7 +279,7 @@ export const hasAllowedPatterns = createRegistrySelector( ( select ) =>
 			} );
 		},
 		( state, rootClientId ) => [
-			getAllPatternsDependants( state ),
+			getAllPatternsDependants( select )( state ),
 			state.settings.allowedBlockTypes,
 			state.settings.templateLock,
 			state.blockListSettings[ rootClientId ],
@@ -325,7 +325,7 @@ export const getAllPatterns = createRegistrySelector( ( select ) =>
 			( x, index, arr ) =>
 				index === arr.findIndex( ( y ) => x.name === y.name )
 		);
-	}, getAllPatternsDependants )
+	}, getAllPatternsDependants( select ) )
 );
 
 const EMPTY_ARRAY = [];
