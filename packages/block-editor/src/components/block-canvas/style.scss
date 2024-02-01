@@ -2,11 +2,12 @@ iframe[name="editor-canvas"] {
 	width: 100%;
 	height: 100%;
 	display: block;
+}
+
+iframe[name="editor-canvas"]:not(.has-editor-padding) {
 	background-color: $white;
 }
 
 iframe[name="editor-canvas"].has-editor-padding {
-	border-width: $grid-unit-60 $grid-unit-60 0;
-	border-style: solid;
-	border-color: $gray-900; // Matches .edit-post-visual-editor and .edit-site-visual-editor backgrounds.
+	padding: $grid-unit-60 $grid-unit-60 0;
 }
