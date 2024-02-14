@@ -176,7 +176,7 @@ export default function TemplatePartEdit( {
 					tagName={ TagName }
 					blockProps={ blockProps }
 					postId={ templatePartId }
-					hasInnerBlocks={ innerBlocks.length > 0 }
+					hasInnerBlocks={ hasInnerBlocks }
 					layout={ layout }
 				/>
 			</RecursionProvider>
