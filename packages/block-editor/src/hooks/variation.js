@@ -18,13 +18,18 @@ import { store as blockEditorStore } from '../store';
 
 export default {
 	hasSupport: () => true,
-	attributeKeys: [ 'style' ],
+	attributeKeys: [ 'className' ],
 	passChildren: true,
 	useBlockProps,
 };
 
 function hasVariationClass( className ) {
 	return /\bis-style-(?!default)\b/.test( className );
+}
+
+function getVariationNameFromClass( className ) {
+	const match = className?.match( /\bis-style-(?!default)(\S+)\b/ );
+	return match ? match[ 1 ] : null;
 }
 
 function findInnerVariations( innerBlocks ) {
@@ -105,9 +110,9 @@ function useBlockSyleVariation( name, variation, clientId ) {
 // This is so that the variation style override's ID is predictable when
 // searching for inner blocks that have a variation applied and need those
 // styles to come after the parent's.
-function useBlockProps( { name, style, clientId } ) {
-	const variation = style?.variation;
-	const className = `is-style-${ variation }-${ clientId }`;
+function useBlockProps( { name, className, clientId } ) {
+	const variation = getVariationNameFromClass( className );
+	const variationClass = `is-style-${ variation }-${ clientId }`;
 
 	const getBlockStyles = useSelect( ( select ) => {
 		return select( blocksStore ).getBlockStyles;
@@ -160,5 +165,5 @@ function useBlockProps( { name, style, clientId } ) {
 		childOverrideIds: childVariationIds,
 	} );
 
-	return variation ? { className } : {};
+	return variation ? { className: variationClass } : {};
 }

@@ -19,6 +19,22 @@ function gutenberg_get_variation_class_name( $block, $variation ) {
 }
 
 /**
+ * Determine a block style variation name from a CSS class.
+ *
+ * @param string $class_string CSS class string to look for a variation in.
+ *
+ * @return string|null The variation name if found.
+ */
+function gutenberg_get_variation_name_from_class( $class_string ) {
+	if ( ! is_string( $class_string ) ) {
+		return null;
+	}
+
+	preg_match( '/\bis-style-(?!default)(\S+)\b/', $class_string, $matches );
+	return $matches ? $matches[1] : null;
+}
+
+/**
  * Update the block content with the variation's class name.
  *
  * @param string $block_content Rendered block content.
@@ -36,8 +52,7 @@ function gutenberg_render_variation_support( $block_content, $block ) {
 	$tags = new WP_HTML_Tag_Processor( $block_content );
 
 	if ( $tags->next_tag() ) {
-		preg_match( '/\bis-style-(\S+)\b/', $tags->get_attribute( 'class' ), $matches );
-		$variation = $matches[1] ?? null;
+		$variation = gutenberg_get_variation_name_from_class( $tags->get_attribute( 'class' ) );
 
 		if ( $variation ) {
 			$tree       = WP_Theme_JSON_Resolver_Gutenberg::get_merged_data();
@@ -68,7 +83,8 @@ function gutenberg_render_variation_support( $block_content, $block ) {
  * @return null
  */
 function gutenberg_render_variation_support_styles( $pre_render, $block ) {
-	$variation = $block['attrs']['style']['variation'] ?? null;
+	$classes   = $block['attrs']['className'] ?? null;
+	$variation = gutenberg_get_variation_name_from_class( $classes );
 
 	if ( ! $variation ) {
 		return null;
