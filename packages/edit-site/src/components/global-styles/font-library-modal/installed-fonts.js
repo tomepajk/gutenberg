@@ -100,7 +100,10 @@ function InstalledFonts() {
 					<Spinner />
 				</HStack>
 			) }
-			<NavigatorProvider initialPath="/">
+
+			<NavigatorProvider
+				initialPath={ libraryFontSelected ? '/fontFamily' : '/' }
+			>
 				<NavigatorScreen path="/">
 					<VStack spacing="8">
 						{ notice && (
