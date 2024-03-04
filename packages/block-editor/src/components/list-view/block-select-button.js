@@ -53,7 +53,6 @@ function ListViewBlockSelectButton(
 		onDragEnd,
 		draggable,
 		isExpanded,
-		ariaLabel,
 		ariaDescribedBy,
 		updateFocusAndSelection,
 	},
@@ -258,7 +257,6 @@ function ListViewBlockSelectButton(
 				onDragEnd={ onDragEnd }
 				draggable={ draggable }
 				href={ `#block-${ clientId }` }
-				aria-label={ ariaLabel }
 				aria-describedby={ ariaDescribedBy }
 				aria-expanded={ isExpanded }
 			>
