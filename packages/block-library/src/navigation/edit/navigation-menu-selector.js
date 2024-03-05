@@ -100,7 +100,7 @@ function NavigationMenuSelector( {
 
 	let currentMenuTitleOrMenuState = '';
 
-	if ( isCreatingMenu || isResolvingNavigationMenus ) {
+	if ( isResolvingNavigationMenus || ! hasResolvedNavigationMenus ) {
 		currentMenuTitleOrMenuState = __( 'Loading…' );
 	} else if ( noMenuSelected || noBlockMenus || menuUnavailable ) {
 		// Note: classic Menus may be available.
