@@ -6,6 +6,7 @@ import classNames from 'classnames';
 /**
  * WordPress dependencies
  */
+import { forwardRef } from '@wordpress/element';
 import { useAsyncList } from '@wordpress/compose';
 import {
 	__experimentalHStack as HStack,
@@ -17,17 +18,18 @@ import { ENTER, SPACE } from '@wordpress/keycodes';
 import { info } from '@wordpress/icons';
 import { __ } from '@wordpress/i18n';
 
-export default function ViewList( {
-	view,
-	fields,
-	data,
-	isLoading,
-	getItemId,
-	onSelectionChange,
-	onDetailsChange,
-	selection,
-	deferredRendering,
-} ) {
+const ViewList = forwardRef( ( props, ref ) => {
+	const {
+		view,
+		fields,
+		data,
+		isLoading,
+		getItemId,
+		onSelectionChange,
+		onDetailsChange,
+		selection,
+		deferredRendering,
+	} = props;
 	const shownData = useAsyncList( data, { step: 3 } );
 	const usedData = deferredRendering ? shownData : data;
 	const mediaField = fields.find(
@@ -68,7 +70,7 @@ export default function ViewList( {
 	}
 
 	return (
-		<ul className="dataviews-view-list">
+		<ul className="dataviews-view-list" ref={ ref }>
 			{ usedData.map( ( item ) => {
 				return (
 					<li
@@ -134,4 +136,5 @@ export default function ViewList( {
 			} ) }
 		</ul>
 	);
-}
+} );
+export default ViewList;
