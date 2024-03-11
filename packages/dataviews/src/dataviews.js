@@ -46,6 +46,7 @@ export default function DataViews( {
 } ) {
 	const [ selection, setSelection ] = useState( [] );
 	const [ openedFilter, setOpenedFilter ] = useState( null );
+	const [ viewComponentAnchor, setViewComponentAnchor ] = useState();
 
 	useEffect( () => {
 		if (
@@ -133,6 +134,7 @@ export default function DataViews( {
 				/>
 			</HStack>
 			<ViewComponent
+				ref={ setViewComponentAnchor }
 				fields={ _fields }
 				view={ view }
 				onChangeView={ onChangeView }
@@ -146,20 +148,22 @@ export default function DataViews( {
 				deferredRendering={ deferredRendering }
 				setOpenedFilter={ setOpenedFilter }
 			/>
-			<div>
-				<Pagination
-					view={ view }
-					onChangeView={ onChangeView }
-					paginationInfo={ paginationInfo }
-				/>
-				<BulkActionsPopover
-					data={ data }
-					actions={ actions }
-					selection={ selection }
-					setSelection={ setSelection }
-					getItemId={ getItemId }
-				/>
-			</div>
+			<Pagination
+				view={ view }
+				onChangeView={ onChangeView }
+				paginationInfo={ paginationInfo }
+			/>
+			{ [ LAYOUT_TABLE, LAYOUT_GRID ].includes( view.type ) &&
+				hasPossibleBulkAction && (
+					<BulkActionsPopover
+						anchor={ viewComponentAnchor }
+						data={ data }
+						actions={ actions }
+						selection={ selection }
+						setSelection={ setSelection }
+						getItemId={ getItemId }
+					/>
+				) }
 		</div>
 	);
 }
