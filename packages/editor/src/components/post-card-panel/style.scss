@@ -1,16 +1,13 @@
-.editor-sidebar-card {
-	display: flex;
-	align-items: flex-start;
-
+.editor-post-card-panel {
 	&__content {
 		flex-grow: 1;
-		margin-bottom: $grid-unit-05;
 	}
 
 	&__title {
 		font-weight: 500;
 		line-height: $icon-size;
-		&.editor-sidebar-card__title {
+		flex-grow: 1;
+		&.editor-post-card-panel__title {
 			font-size: $default-font-size;
 			line-height: $default-line-height;
 			margin: 0;
@@ -20,11 +17,11 @@
 
 	&__description {
 		font-size: $default-font-size;
+		padding-left: $grid-unit-05;
 	}
 
 	&__icon {
 		flex: 0 0 $icon-size;
-		margin-right: $grid-unit-15;
 		width: $icon-size;
 		height: $icon-size;
 	}
