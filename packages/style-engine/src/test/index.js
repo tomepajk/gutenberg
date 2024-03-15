@@ -430,7 +430,7 @@ describe( 'getCSSRules', () => {
 		] );
 	} );
 
-	it( 'should output fallback cover background size when no size is provided', () => {
+	it( 'should output fallback auto background size when no size is provided', () => {
 		expect(
 			getCSSRules(
 				{
@@ -454,7 +454,7 @@ describe( 'getCSSRules', () => {
 			{
 				selector: '.some-selector',
 				key: 'backgroundSize',
-				value: 'cover',
+				value: 'auto',
 			},
 		] );
 	} );
@@ -466,6 +466,7 @@ describe( 'getCSSRules', () => {
 					background: {
 						backgroundImage:
 							"linear-gradient(to bottom,rgb(255 255 0 / 50%),rgb(0 0 255 / 50%), url('https://example.com/image.jpg')",
+						backgroundSize: 'cover',
 					},
 				},
 				{

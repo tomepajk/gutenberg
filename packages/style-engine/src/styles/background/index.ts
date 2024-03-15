@@ -26,6 +26,15 @@ const backgroundImage = {
 				key: 'backgroundImage',
 				value: _backgroundImage,
 			} );
+
+			// If no background size is set, but an image is, default to auto.
+			if ( _backgroundSize === undefined ) {
+				styleRules.push( {
+					selector: options.selector,
+					key: 'backgroundSize',
+					value: 'auto',
+				} );
+			}
 		}
 
 		if (
@@ -41,15 +50,15 @@ const backgroundImage = {
 					safeDecodeURI( _backgroundImage.url )
 				) }' )`,
 			} );
-		}
 
-		// If no background size is set, but an image is, default to cover.
-		if ( _backgroundSize === undefined ) {
-			styleRules.push( {
-				selector: options.selector,
-				key: 'backgroundSize',
-				value: 'cover',
-			} );
+			// If no background size is set, but an image is, default to auto.
+			if ( _backgroundSize === undefined ) {
+				styleRules.push( {
+					selector: options.selector,
+					key: 'backgroundSize',
+					value: 'auto',
+				} );
+			}
 		}
 
 		return styleRules;
